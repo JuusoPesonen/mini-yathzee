@@ -3,7 +3,7 @@ import { Text, View, TouchableHighlight } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Container, Row, Col } from "react-native-flex-grid";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import styles from "./Style/style";
+import styles from "../Style/style";
 import Header from './Header'
 import Footer from './Footer'
 import { MAX_SPOT, NBR_OF_THROWS, NBR_OF_DICES, SCOREBOARD_KEY } from "../constants/Game";

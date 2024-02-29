@@ -1,6 +1,6 @@
-import Home from "../Components/Home";
-import Scoreboard from "../Components/Scoreboard";
-import Gameboard from "../Components/Gameboard";
+import Home from "./components/Home";
+import Scoreboard from "./components/Scoreboard";
+import Gameboard from "./components/Gameboard";
 import { View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
