@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rosybrown',
+    backgroundColor: '#b59f74',
   },
   centerContent: {
     flex: 1,
@@ -41,7 +41,7 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center', 
-    backgroundColor: 'rosybrown',
+    backgroundColor: '#b59f74',
   },
   homeContent: {
     width: '80%',
@@ -63,7 +63,7 @@ export default StyleSheet.create({
     padding: 10,
   },
   button: {
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff',
     padding: 10,
     borderRadius: 15,
     width: 150,
@@ -127,7 +127,7 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rosybrown',
+    backgroundColor: '#b59f74',
     alignItems: 'center',
   }
   

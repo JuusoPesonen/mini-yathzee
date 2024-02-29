@@ -3,7 +3,7 @@ import { Text, View, TouchableHighlight } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Container, Row, Col } from "react-native-flex-grid";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import styles from '../Style/style';
+import styles from "./Style/style";
 import Header from './Header'
 import Footer from './Footer'
 import { MAX_SPOT, NBR_OF_THROWS, NBR_OF_DICES, SCOREBOARD_KEY } from "../constants/Game";
@@ -26,7 +26,6 @@ const Gameboard = ({ navigation, route }) => {
   const [bonusPoints, setBonusPoints] = useState(0);
   const [scores, setScores] = useState([]);
   const [message, setMessage] = useState('');
-
 
   // useEffect hook to set player name from route params
   useEffect(() => {
@@ -165,7 +164,7 @@ const Gameboard = ({ navigation, route }) => {
       setGameEndStatus(false);
       resetRound();
     } else {
-      setStatus('Game has ended. Save your points and move to the scoreboard.');
+      setStatus('Game has ended. Save your points and start game again.');
       setGameEndStatus(true);
     }
   };
@@ -207,7 +206,7 @@ const Gameboard = ({ navigation, route }) => {
         setDicePointsTotal(points);
         setSelectedDicePoints(selectedPoints);
         setTotalPoints((prevTotal) => prevTotal + points[i]);
-        checkBonusPoints(); // Call the checkBonusPoints function
+        checkBonusPoints();
       } else {
         setStatus(`You already selected points for ${i + 1}`);
       }
@@ -246,9 +245,8 @@ const Gameboard = ({ navigation, route }) => {
         setTotalPoints(0);
         setBonusPoints(0);
         setMessage('');
-
         // Navigate back to Home screen after saving points
-        navigation.navigate('Home', { playerName: '' });
+        navigation.navigate('Home', { setPlayerName: '' });
       } catch (e) {
         console.log('Save error: ' + e);
       }
