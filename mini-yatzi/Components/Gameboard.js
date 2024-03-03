@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Text, View, TouchableHighlight } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Container, Row, Col } from "react-native-flex-grid";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import styles from "../Style/style";
+import styles from "../style/style";
 import Header from './Header'
 import Footer from './Footer'
 import { MAX_SPOT, NBR_OF_THROWS, NBR_OF_DICES, SCOREBOARD_KEY } from "../constants/Game";
@@ -196,6 +196,7 @@ const Gameboard = ({ navigation, route }) => {
     if (nbrOfThrowsLeft === 0) {
       let selectedPoints = [...selectedDicePoints];
       let points = [...dicePointsTotal];
+  
       if (!selectedPoints[i]) {
         selectedPoints[i] = true;
         let nbrOfDices = diceSpots.reduce(
@@ -210,8 +211,10 @@ const Gameboard = ({ navigation, route }) => {
       } else {
         setStatus(`You already selected points for ${i + 1}`);
       }
+    } else if (nbrOfThrowsLeft === NBR_OF_THROWS) {
+      setStatus(`Throw dices three times before setting points`);
     } else {
-      setStatus(`Throw ${NBR_OF_THROWS} times before setting points`);
+      setStatus(`Throw remaining dices before setting points`);
     }
   };
 

@@ -78,6 +78,7 @@ export default StyleSheet.create({
   },
   rulesText: {
     color: 'white',
+    fontFamily: 'NotoSansRegular',
     fontSize: 13,
     textAlign: 'center',
     marginBottom: 10,
@@ -98,6 +99,7 @@ export default StyleSheet.create({
     fontWeight: 'bold',
   },
   totalPoints: {
+    fontFamily: 'NotoSansRegular',
     fontWeight: 'bold',
     fontSize: 18,
     marginBottom: 10,
@@ -106,6 +108,7 @@ export default StyleSheet.create({
   },
   status: {
     fontSize: 16,
+    fontFamily: 'NotoSansRegular',
     fontWeight: 'bold',
     marginTop: 10,
     color: 'white',
@@ -113,6 +116,7 @@ export default StyleSheet.create({
   },
   bonusPoints: {
     fontSize: 15,
+    fontFamily: 'NotoSansRegular',
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 5,

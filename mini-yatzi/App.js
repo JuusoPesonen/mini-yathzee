@@ -6,10 +6,22 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 //import Icon from "react-native-vector-icons/FontAwesome";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import { useFonts } from 'expo-font';
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+
+  // Load fonts
+   const [loaded] = useFonts({
+    NotoSansRegular: require('./assets/fonts/NotoSans-Regular.ttf'),
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
+
   return (
     <NavigationContainer>
       <Tab.Navigator

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { TextInput, Text, View, Pressable, Keyboard, ScrollView } from "react-native";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { NBR_OF_DICES, NBR_OF_THROWS, MIN_SPOT, MAX_SPOT, BONUS_POINTS, BONUS_POINTS_LIMIT } from "../constants/Game";
-import styles from "../Style/style";
+import styles from "../style/style";
 import Header from "./Header";
 import Footer from "./Footer";
 

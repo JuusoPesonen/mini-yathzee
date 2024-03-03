@@ -5,12 +5,13 @@ import Footer from './Footer';
 import { Text, View, TouchableHighlight, ScrollView } from 'react-native';
 import { NBR_OF_SCOREBOARD_ROWS, SCOREBOARD_KEY } from '../constants/Game';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import styles from '../Style/style';
+import styles from '../style/style';
 
 
 export default Scoreboard = ({ navigation }) => {
     const [scores, setScores] = useState([]);
 
+    // Get scoreboard data when the screen is in focus
     useEffect(() => {
         const unsubscribe = navigation.addListener('focus', () => {
             getScoreboardData();
@@ -18,6 +19,7 @@ export default Scoreboard = ({ navigation }) => {
         return unsubscribe;
     }, [navigation]);
 
+    // Get scoreboard data
     const getScoreboardData = async () => {
         try {
             const jsonValue = await AsyncStorage.getItem(SCOREBOARD_KEY);
@@ -33,14 +35,23 @@ export default Scoreboard = ({ navigation }) => {
         }
     };
 
+    // Clear scoreboard
     const clearScoreboard = async () => {
         try {
-            await AsyncStorage.clear();
+            await AsyncStorage.removeItem(SCOREBOARD_KEY);
             setScores([]);
         } catch (e) {
             console.log('Clear error: ' + e);
         }
     };
+    // const clearScoreboard = async () => {
+    //     try {
+    //         await AsyncStorage.clear();
+    //         setScores([]);
+    //     } catch (e) {
+    //         console.log('Clear error: ' + e);
+    //     }
+    // };
 
     const renderButton = (text, onPress) => (
         <TouchableHighlight
