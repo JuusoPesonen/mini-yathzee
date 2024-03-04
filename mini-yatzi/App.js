@@ -40,7 +40,7 @@ export default function App() {
             return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
             //return <Icon name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: "#957700",
+          tabBarActiveTintColor: "#cfa600",
           tabBarInactiveTintColor: "#000000",
         })}
       >
