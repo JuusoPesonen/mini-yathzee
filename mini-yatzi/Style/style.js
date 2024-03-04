@@ -26,6 +26,7 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     flex: 1,
     fontSize: 20,
+    fontFamily: 'NotoSansRegular',
     textAlign: 'center',
     margin: 10,
   },
@@ -50,6 +51,7 @@ export default StyleSheet.create({
   homeText: {
     color: 'white',
     fontSize: 20,
+    fontFamily: 'NotoSansRegular',
     textAlign: 'center',
     marginBottom: 20,
   },
@@ -74,6 +76,7 @@ export default StyleSheet.create({
   buttonText: {
     color: 'rosybrown',
     fontSize: 15,
+    fontFamily: 'NotoSansRegular',
     fontWeight: 'bold',
   },
   rulesText: {
@@ -96,6 +99,7 @@ export default StyleSheet.create({
   throwButtonText: {
     color: 'rosybrown',
     fontSize: 15,
+    fontFamily: 'NotoSansRegular',
     fontWeight: 'bold',
   },
   totalPoints: {
