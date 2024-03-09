@@ -196,7 +196,7 @@ const Gameboard = ({ navigation, route }) => {
     if (nbrOfThrowsLeft === 0) {
       let selectedPoints = [...selectedDicePoints];
       let points = [...dicePointsTotal];
-  
+
       if (!selectedPoints[i]) {
         selectedPoints[i] = true;
         let nbrOfDices = diceSpots.reduce(

@@ -6,3 +6,4 @@ export const BONUS_POINTS_LIMIT = 63;
 export const BONUS_POINTS = 50;
 export const MAX_NBR_OF_SCOREBOARD_ROWS = 7;
 export const SCOREBOARD_KEY = '@scoreboard';
+export const GAME_COUNT_KEY = '@gameCount';

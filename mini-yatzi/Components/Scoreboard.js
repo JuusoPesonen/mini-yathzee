@@ -44,6 +44,7 @@ export default Scoreboard = ({ navigation }) => {
             console.log('Clear error: ' + e);
         }
     };
+
     // const clearScoreboard = async () => {
     //     try {
     //         await AsyncStorage.clear();
@@ -65,34 +66,34 @@ export default Scoreboard = ({ navigation }) => {
 
     return (
         <ScrollView>
-        <View style={[styles.container, styles.centerContent]}>
-            <Header />
-            <Text style={styles.status}>Scoreboard</Text>
-            {scores.length === 0 ? (
-                <Text >Scoreboard is empty</Text>
-            ) : (
-                <DataTable>
-                    <DataTable.Header>
-                        <DataTable.Title style={{ flex: 1 }}>Rank</DataTable.Title>
-                        <DataTable.Title style={{ flex: 2 }}>Name</DataTable.Title>
-                        <DataTable.Title style={{ flex: 2 }}>Date</DataTable.Title>
-                        <DataTable.Title style={{ flex: 2 }}>Time</DataTable.Title>
-                        <DataTable.Title style={{ flex: 1 }}>Score</DataTable.Title>
-                    </DataTable.Header>
-                    {scores.slice(0, NBR_OF_SCOREBOARD_ROWS).map((player, index) => (
-                        <DataTable.Row key={player.key}>
-                            <DataTable.Cell style={{ flex: 1 }}>{index + 1}.</DataTable.Cell>
-                            <DataTable.Cell style={{ flex: 2 }}>{player.name}</DataTable.Cell>
-                            <DataTable.Cell style={{ flex: 2 }}>{player.date}</DataTable.Cell>
-                            <DataTable.Cell style={{ flex: 2 }}>{player.time.slice(0, -3)}</DataTable.Cell>
-                            <DataTable.Cell style={{ flex: 1 }}>{player.points}</DataTable.Cell>
-                        </DataTable.Row>
-                    ))}
-                </DataTable>
-            )}
-            {renderButton('CLEAR SCOREBOARD', clearScoreboard)}
-            <Footer />
-        </View>
+            <View style={[styles.container, styles.centerContent]}>
+                <Header />
+                <Text style={styles.status}>Scoreboard</Text>
+                {scores.length === 0 ? (
+                    <Text >Scoreboard is empty</Text>
+                ) : (
+                    <DataTable>
+                        <DataTable.Header>
+                            <DataTable.Title style={{ flex: 1 }}>Rank</DataTable.Title>
+                            <DataTable.Title style={{ flex: 2 }}>Name</DataTable.Title>
+                            <DataTable.Title style={{ flex: 2 }}>Date</DataTable.Title>
+                            <DataTable.Title style={{ flex: 2 }}>Time</DataTable.Title>
+                            <DataTable.Title style={{ flex: 1 }}>Score</DataTable.Title>
+                        </DataTable.Header>
+                        {scores.slice(0, NBR_OF_SCOREBOARD_ROWS).map((player, index) => (
+                            <DataTable.Row key={player.key}>
+                                <DataTable.Cell style={{ flex: 1 }}>{index + 1}.</DataTable.Cell>
+                                <DataTable.Cell style={{ flex: 2 }}>{player.name}</DataTable.Cell>
+                                <DataTable.Cell style={{ flex: 2 }}>{player.date}</DataTable.Cell>
+                                <DataTable.Cell style={{ flex: 2 }}>{player.time.slice(0, -3)}</DataTable.Cell>
+                                <DataTable.Cell style={{ flex: 1 }}>{player.points}</DataTable.Cell>
+                            </DataTable.Row>
+                        ))}
+                    </DataTable>
+                )}
+                {renderButton('CLEAR SCOREBOARD', clearScoreboard)}
+                <Footer />
+            </View>
         </ScrollView>
     );
 };
