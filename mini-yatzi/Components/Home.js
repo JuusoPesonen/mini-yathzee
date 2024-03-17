@@ -31,6 +31,7 @@ export default Home = ({ navigation, route }) => {
                                 <TextInput style={styles.textInput} onChangeText={setPlayerName} autoFocus={true} />
                                 <Pressable
                                     style={styles.button}
+                                    placeholder="Enter your name"
                                     onPress={() => handlePlayerName(playerName)}
                                 ><Text style={styles.buttonText}>OK</Text>
                                 </Pressable>

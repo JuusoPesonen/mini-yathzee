@@ -27,8 +27,10 @@ export default Scoreboard = ({ navigation }) => {
                 let tmpScores = JSON.parse(jsonValue);
 
                 tmpScores.sort((a, b) => b.points - a.points);
-
                 setScores(tmpScores);
+            } else {
+                // Reset scores to an empty array if there is no data
+                setScores([]);
             }
         } catch (e) {
             console.log('Read error: ' + e);
@@ -38,12 +40,24 @@ export default Scoreboard = ({ navigation }) => {
     // Clear scoreboard
     const clearScoreboard = async () => {
         try {
-            await AsyncStorage.removeItem(SCOREBOARD_KEY);
-            setScores([]);
+            const keys = await AsyncStorage.getAllKeys();
+            await AsyncStorage.multiRemove(keys);
+            setScores([]); // Reset scores to an empty array after clearing
+            alert('All data cleared successfully');
         } catch (e) {
             console.log('Clear error: ' + e);
         }
     };
+
+    // Clear scoreboard
+    // const clearScoreboard = async () => {
+    //     try {
+    //         await AsyncStorage.removeItem(SCOREBOARD_KEY);
+    //         setScores([]);
+    //     } catch (e) {
+    //         console.log('Clear error: ' + e);
+    //     }
+    // };
 
     // const clearScoreboard = async () => {
     //     try {

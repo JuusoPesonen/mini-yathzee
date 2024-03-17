@@ -147,16 +147,32 @@ const Gameboard = ({ navigation, route }) => {
       }
       setNbrOfThrowsLeft(nbrOfThrowsLeft - 1);
       setDiceSpots(spots);
+  
       setStatus(
-        nbrOfThrowsLeft > 0
+        nbrOfThrowsLeft > 1
           ? `Select and throw dices`
-          : 'Select points or throw again'
+          : 'Select points or proceed to the next round'
       );
     } else {
+      // If it's the last throw and points haven't been selected, do nothing
+      if (!checkPointsSelected()) {
+        setStatus('Select points before proceeding to the next round.');
+        return;
+      }
       handleGameEnd();
     }
   };
 
+  // Function to check if points have been selected
+  const checkPointsSelected = () => {
+    // If it's the last throw and points have been selected, return true
+    if (nbrOfThrowsLeft === 0) {
+      return selectedDicePoints.some((value) => value === true);
+    }
+    // If it's not the last throw, return false
+    return true;
+  };
+  
   // Function to handle the end of a game round
   const handleGameEnd = () => {
     if (currentRound < 6) {
