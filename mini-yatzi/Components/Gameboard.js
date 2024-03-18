@@ -207,7 +207,7 @@ const Gameboard = ({ navigation, route }) => {
     }
   };
 
-  // Function to handle the selection of dice points
+  //Function to handle the selection of dice points
   const selectDicePoints = (i) => {
     if (nbrOfThrowsLeft === 0) {
       let selectedPoints = [...selectedDicePoints];
@@ -233,7 +233,7 @@ const Gameboard = ({ navigation, route }) => {
       setStatus(`Throw remaining dices before setting points`);
     }
   };
-
+  
   // Function to save player points to AsyncStorage
   const savePlayerPoints = async () => {
     if (currentRound === 6 && gameEndStatus) {
