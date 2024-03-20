@@ -26,7 +26,7 @@ const Gameboard = ({ navigation, route }) => {
   const [bonusPoints, setBonusPoints] = useState(0);
   const [scores, setScores] = useState([]);
   const [message, setMessage] = useState('');
-  const [throwsCounter, setThrowsCounter] = useState(0);
+  const [gamesPlayed, setGamesPlayed] = useState(0); 
 
   // useEffect hook to set player name from route params
   useEffect(() => {
@@ -40,6 +40,14 @@ const Gameboard = ({ navigation, route }) => {
     const unsubscribe = navigation.addListener('focus', getScoreboardData);
     return unsubscribe;
   }, [navigation]);
+
+
+  // Handle to update game counter when game ends
+  useEffect(() => {
+    if (gameEndStatus && currentRound === 6) {
+      setGamesPlayed((prevGamesPlayed) => prevGamesPlayed + 1);
+    }
+  }, [gameEndStatus, currentRound]);
 
   // useEffect hook to handle bonus points when totalPoints change
   useEffect(() => {
@@ -336,6 +344,7 @@ const Gameboard = ({ navigation, route }) => {
         <Text style={styles.bonusPoints}>{message}</Text>
         {renderButton('SAVE POINTS', savePlayerPoints)}
         <Text style={styles.status}>Player: {playerName}</Text>
+        <Text style={styles.status}>Games Played: {gamesPlayed}</Text>
       </View>
       <Footer />
     </View>

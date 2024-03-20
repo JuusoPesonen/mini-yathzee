@@ -37,7 +37,7 @@ export default Scoreboard = ({ navigation }) => {
         }
     };
 
-    // Clear scoreboard
+    // Clear scoreboard ** deleting issue; when starting played and finished new game, deleted score data comes back
     const clearScoreboard = async () => {
         try {
             const keys = await AsyncStorage.getAllKeys();
@@ -48,17 +48,7 @@ export default Scoreboard = ({ navigation }) => {
             console.log('Clear error: ' + e);
         }
     };
-
-    // Clear scoreboard
-    // const clearScoreboard = async () => {
-    //     try {
-    //         await AsyncStorage.removeItem(SCOREBOARD_KEY);
-    //         setScores([]);
-    //     } catch (e) {
-    //         console.log('Clear error: ' + e);
-    //     }
-    // };
-
+    
     // const clearScoreboard = async () => {
     //     try {
     //         await AsyncStorage.clear();
