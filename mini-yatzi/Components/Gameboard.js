@@ -26,6 +26,7 @@ const Gameboard = ({ navigation, route }) => {
   const [bonusPoints, setBonusPoints] = useState(0);
   const [scores, setScores] = useState([]);
   const [message, setMessage] = useState('');
+  const [throwsCounter, setThrowsCounter] = useState(0);
 
   // useEffect hook to set player name from route params
   useEffect(() => {
@@ -140,14 +141,14 @@ const Gameboard = ({ navigation, route }) => {
       let spots = [...diceSpots];
       for (let i = 0; i < NBR_OF_DICES; i++) {
         if (!selectedDices[i]) {
-          let randomNumber = Math.floor(Math.random() * 6 + 1);
+          let randomNumber = Math.floor(Math.random() * MAX_SPOT + 1);
           board[i] = 'dice-' + randomNumber;
           spots[i] = randomNumber;
         }
       }
       setNbrOfThrowsLeft(nbrOfThrowsLeft - 1);
       setDiceSpots(spots);
-  
+
       setStatus(
         nbrOfThrowsLeft > 1
           ? `Select and throw dices`
@@ -166,13 +167,13 @@ const Gameboard = ({ navigation, route }) => {
   // Function to check if points have been selected
   const checkPointsSelected = () => {
     // If it's the last throw and points have been selected, return true
-    if (nbrOfThrowsLeft === 0) {
+    if (nbrOfThrowsLeft === 0 && !gameEndStatus) {
       return selectedDicePoints.some((value) => value === true);
     }
     // If it's not the last throw, return false
     return true;
   };
-  
+
   // Function to handle the end of a game round
   const handleGameEnd = () => {
     if (currentRound < 6) {
@@ -233,7 +234,7 @@ const Gameboard = ({ navigation, route }) => {
       setStatus(`Throw remaining dices before setting points`);
     }
   };
-  
+
   // Function to save player points to AsyncStorage
   const savePlayerPoints = async () => {
     if (currentRound === 6 && gameEndStatus) {
@@ -265,7 +266,7 @@ const Gameboard = ({ navigation, route }) => {
         setBonusPoints(0);
         setMessage('');
         // Navigate back to Home screen after saving points
-        navigation.navigate('Home', { setPlayerName: '' });
+        navigation.navigate('Home', { playerName: '' });
       } catch (e) {
         console.log('Save error: ' + e);
       }
